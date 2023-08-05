@@ -15,7 +15,7 @@ def estraiGiocatore(df):
     giocatore = df.sample(n=1)
     st.dataframe(giocatore)
     st.write(df[(df["cognome"] == giocatore["cognome"]) & (df["squadra"] == giocatore["squadra"])])
-    df.drop(, axis = 0, inplace = True)
+    #df.drop(, axis = 0, inplace = True)
     
 
 #importazione lista calciatori
