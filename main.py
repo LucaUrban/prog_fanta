@@ -26,14 +26,14 @@ table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main
 
 
 #importazione csv partecipanti
-Alessandro = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Alessandro.CSV', delimiter = ";")
-Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Anfrea.CSV', delimiter = ";")
-Gabriele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Gabriele.CSV', delimiter = ";")
-Luca = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Luca.CSV', delimiter = ";")
-Michele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Michele.CSV', delimiter = ";")
-Morto = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Mortoi.CSV', delimiter = ";")
-Valerio = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valerio.CSV', delimiter = ";")
-Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valter.CSV', delimiter = ";")
+Alessandro = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Alessandro.csv', delimiter = ";")
+Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Anfrea.csv', delimiter = ";")
+Gabriele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Gabriele.csv', delimiter = ";")
+Luca = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Luca.csv', delimiter = ";")
+Michele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Michele.csv', delimiter = ";")
+Morto = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Mortoi.csv', delimiter = ";")
+Valerio = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valerio.csv', delimiter = ";")
+Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valter.csv', delimiter = ";")
 
 #Apllicazione
 st.title("Applicazione Fanta")
