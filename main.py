@@ -22,9 +22,6 @@ def estraiGiocatore(df):
 #importazione lista calciatori
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
 
-#importazione immagini
-
-
 #importazione csv partecipanti
 Alessandro = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Alessandro.csv')
 Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Andrea.csv')
