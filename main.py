@@ -16,6 +16,7 @@ def estraiGiocatore(df):
     st.dataframe(giocatore)
     df.drop(giocatore.index, axis = 0, inplace = True)
     df.reset_index(inplace=True)
+    st.dataframe(df)
     
 
 #importazione lista calciatori
