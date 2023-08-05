@@ -46,8 +46,8 @@ st.title("Applicazione Fanta")
 player = 0; price = 0
 if st.button('Estrai Giocatore'): 
     player = estraiGiocatore(table)
-    st.dataframe(giocatore, hide_index = True)
-
+    st.dataframe(player, hide_index = True)
+st.write(player)
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
     acquirente = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
