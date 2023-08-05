@@ -27,7 +27,7 @@ table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main
 
 #importazione csv partecipanti
 Alessandro = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Alessandro.csv', delimiter = ";")
-Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Anfrea.csv', delimiter = ";")
+Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Andrea.csv', delimiter = ";")
 Gabriele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Gabriele.csv', delimiter = ";")
 Luca = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Luca.csv', delimiter = ";")
 Michele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Michele.csv', delimiter = ";")
