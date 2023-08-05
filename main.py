@@ -11,7 +11,7 @@ import random
 import csv
 
 
-st.title("Visual Information Quality Environment")
+st.title("Applicazione Fanta")
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
