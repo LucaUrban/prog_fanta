@@ -18,7 +18,7 @@ def estraiGiocatore(df):
     df.reset_index(inplace=True)
 
 #funzione creazione excel
-def createExcel:
+def createExcel():
     st.write("")
 
 #importazione lista calciatori
