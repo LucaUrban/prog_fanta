@@ -12,15 +12,22 @@ import csv
 
 #importazione lista calciatori
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
-st.dataframe(table)
 
+#Titolo apllicazione
 st.title("Applicazione Fanta")
+
+left, center, right = st.columns(3, gap = "large")
+with center:
+    colB1, colB2, colB3 = st.columns([0.15, 0.7, 0.15], gap = "large")
+    with colB2:
+        st.button('Estrai Giocatore')
+    
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
-    out_id_col = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
+    acquirente = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
 with center:
-    ch_out_type = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
+    prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 with right:
     colB1, colB2, colB3 = st.columns([0.15, 0.7, 0.15], gap = "large")
     with colB2:
