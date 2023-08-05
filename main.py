@@ -13,7 +13,6 @@ import csv
 #funzione estrazione casuale calciatore
 def estraiGiocatore(df):
     giocatore = df.sample(n=1)
-    st.dataframe(giocatore, hide_index = True)
     df.drop(giocatore.index, axis = 0, inplace = True)
     df.reset_index(inplace=True)
     return giocatore
@@ -44,7 +43,9 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 #Apllicazione
 st.title("Applicazione Fanta")
 
-if st.button('Estrai Giocatore'): giocatore = estraiGiocatore(table)
+if st.button('Estrai Giocatore'): 
+    giocatore = estraiGiocatore(table)
+    st.dataframe(giocatore, hide_index = True)
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
