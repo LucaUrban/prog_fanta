@@ -13,7 +13,7 @@ import csv
 #functions
 def estraiGiocatore(df):
     giocatore = df.sample(n=1)
-    st.table(giocatore)
+    st.dataframe(giocatore)
     
 
 #importazione lista calciatori
