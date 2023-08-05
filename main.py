@@ -43,8 +43,9 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 #Apllicazione
 st.title("Applicazione Fanta")
 
+player = 0; price = 0
 if st.button('Estrai Giocatore'): 
-    giocatore = estraiGiocatore(table)
+    player = estraiGiocatore(table)
     st.dataframe(giocatore, hide_index = True)
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
@@ -57,7 +58,7 @@ with right:
     with colB2:
         if st.button('Registra acquisto'):
             if acquirente == "Alessandro":
-                inserisciGiocatoreDataframe(Alessandro, giocatore, prezzo)
+                inserisciGiocatoreDataframe(Alessandro, player, prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
