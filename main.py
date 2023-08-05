@@ -14,7 +14,7 @@ import csv
 def estraiGiocatore(df):
     giocatore = df.sample(n=1)
     st.dataframe(giocatore)
-    st.write(df[(df["cognome"] == giocatore["cognome"]) & (df["squadra"] == giocatore["squadra"])])
+    st.write(df[(df["cognome"] == giocatore["cognome"].values[0]) & (df["squadra"] == giocatore["squadra"].values[0])])
     #df.drop(, axis = 0, inplace = True)
     
 
