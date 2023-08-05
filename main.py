@@ -19,7 +19,7 @@ def estraiGiocatore(df):
 
 #funzione creazione excel
 def createExcel():
-    st.write("")
+    st.write("tdtdtufotf")
 
 #importazione lista calciatori
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
