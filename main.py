@@ -13,7 +13,7 @@ import csv
 
 st.title("Visual Information Quality Environment")
 
-left, center, right = st.columns(3)
+left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
     out_id_col = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
 with center:
