@@ -53,7 +53,7 @@ with right:
 col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
     st.write("Alessandro")
-    st.dataframe(Alessandro, hide_index = True)
+    st.dataframe(Alessandro, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
     st.write("Michele")
     st.dataframe(Michele, hide_index = True)
