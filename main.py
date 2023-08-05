@@ -19,10 +19,9 @@ def estraiGiocatore(df):
 
 def inserisciGiocatoreDataframe(df, giocatore, price):
     idx = min(df[df["Prezzo"] == 0].index)
-    st.write(df["Cognome"][idx]) 
-    #giocatore["Cognome"].values[0]
-    st.write(df["Prezzo"][idx])
-    st.write(df["Ruolo"][idx])
+    df.loc["Cognome", idx]) = giocatore["Cognome"].values[0]
+    df.loc["Prezzo", idx] = price
+    #st.write(df["Ruolo"][idx])
 
 #funzione creazione excel
 def createExcel():
