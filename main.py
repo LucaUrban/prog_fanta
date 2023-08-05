@@ -10,6 +10,9 @@ from pandas.api.types import is_numeric_dtype
 import random
 import csv
 
+#importazione lista calciatori
+table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV')
+st.dataframe(table)
 
 st.title("Applicazione Fanta")
 
