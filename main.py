@@ -19,7 +19,7 @@ def estraiGiocatore(df):
 
 def inserisciGiocatoreDataframe(df, giocatore, price):
     idx = min(df[df["Prezzo"] == 0].index)
-    df.loc[idx, "Cognome"] = giocatore["cognome"].values[0]
+    df.loc[idx, "Cognome"] = "abc"
     df.loc[idx, "Prezzo"] = price
     #st.write(df["Ruolo"][idx])
 
