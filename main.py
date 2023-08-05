@@ -19,5 +19,7 @@ with left:
 with center:
     ch_out_type = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 with right:
-    st.write("")
-    st.button('Say hello')
+    colB1, colB2, colB3 = st.columns(3, gap = "large")
+    with colB2:
+        st.write("")
+        st.button('Say hello')
