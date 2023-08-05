@@ -40,8 +40,8 @@ st.title("Applicazione Fanta")
 
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
-    df.drop(giocatore.index, axis = 0, inplace = True)
-    df.reset_index(inplace=True)
+    table.drop(giocatore.index, axis = 0, inplace = True)
+    table.reset_index(inplace=True)
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
