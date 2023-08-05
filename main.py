@@ -31,7 +31,7 @@ Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 Gabriele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Gabriele.csv', delimiter = ";")
 Luca = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Luca.csv', delimiter = ";")
 Michele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Michele.csv', delimiter = ";")
-Morto = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Mortoi.csv', delimiter = ";")
+Morto = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Morto.csv', delimiter = ";")
 Valerio = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valerio.csv', delimiter = ";")
 Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valter.csv', delimiter = ";")
 
