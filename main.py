@@ -26,7 +26,7 @@ left, center, right = st.columns(3, gap = "large")
 with center:
     colB1, colB2, colB3 = st.columns([0.15, 0.7, 0.15], gap = "large")
     with colB2:
-        st.button('Estrai Giocatore', on_click="estraiGiocatore")
+        st.button('Estrai Giocatore', on_click=estraiGiocatore(table))
     
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
