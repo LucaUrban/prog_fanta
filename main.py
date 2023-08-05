@@ -19,4 +19,5 @@ with left:
 with center:
     ch_out_type = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 with right:
+    st.write("")
     st.button('Say hello')
