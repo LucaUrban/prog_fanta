@@ -11,7 +11,7 @@ import random
 import csv
 
 #functions
-def estaiGiocatore(df):
+def estraiGiocatore(df):
     giocatore = df.sample(n=1)
     st.table(giocatore)
     
