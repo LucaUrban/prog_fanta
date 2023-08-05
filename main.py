@@ -37,7 +37,7 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 
 #Apllicazione
 st.title("Applicazione Fanta")
-
+giocatore = 0
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
