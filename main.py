@@ -64,7 +64,7 @@ with col2:
     st.write("Morto")
     st.dataframe(Morto, hide_index = True)
 with col3:
-    st.write("gabriele")
+    st.write("Gabriele")
     st.dataframe(Gabriele, hide_index = True)
     st.write("")
     st.write("Valerio")
@@ -73,6 +73,6 @@ with col4:
     st.write("Luca")
     st.dataframe(Luca, hide_index = True)
     st.write("")
-    st.write("valter")
+    st.write("Valter")
     st.dataframe(Valter, hide_index = True)
 
