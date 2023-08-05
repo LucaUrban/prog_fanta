@@ -21,5 +21,4 @@ with center:
 with right:
     colB1, colB2, colB3 = st.columns([0.15, 0.7, 0.15], gap = "large")
     with colB2:
-        st.write("")
         st.button('Registra acquisto')
