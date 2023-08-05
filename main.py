@@ -13,7 +13,7 @@ import csv
 #funzione estrazione casuale calciatore
 def estraiGiocatore(df):
     giocatore = df.sample(n=1)
-    st.dataframe(giocatore)
+    st.dataframe(giocatore, hide_index = True)
     df.drop(giocatore.index, axis = 0, inplace = True)
     df.reset_index(inplace=True)
 
@@ -53,26 +53,26 @@ with right:
 col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
     st.write("Alessandro")
-    st.dataframe(Alessandro)
+    st.dataframe(Alessandro, hide_index = True)
     st.write("")
     st.write("Michele")
-    st.dataframe(Michele)
+    st.dataframe(Michele, hide_index = True)
 with col2:
     st.write("Andrea")
-    st.dataframe(Andrea)
+    st.dataframe(Andrea, hide_index = True)
     st.write("")
     st.write("Morto")
-    st.dataframe(Morto)
+    st.dataframe(Morto, hide_index = True)
 with col3:
     st.write("gabriele")
-    st.dataframe(Gabriele)
+    st.dataframe(Gabriele, hide_index = True)
     st.write("")
     st.write("Valerio")
-    st.dataframe(Valerio)
+    st.dataframe(Valerio, hide_index = True)
 with col4:
     st.write("Luca")
-    st.dataframe(Luca)
+    st.dataframe(Luca, hide_index = True)
     st.write("")
     st.write("valter")
-    st.dataframe(Valter)
+    st.dataframe(Valter, hide_index = True)
 
