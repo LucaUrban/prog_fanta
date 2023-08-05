@@ -16,6 +16,13 @@ def estraiGiocatore(df):
     st.dataframe(giocatore, hide_index = True)
     df.drop(giocatore.index, axis = 0, inplace = True)
     df.reset_index(inplace=True)
+    return giocatore
+
+def inserisciGiocatoreDataframe(df, giocatore, price):
+    idx = min(df[df["Prezzo"] == 0].index)
+    df["Cognome"][idx] = giocatore["Cognome"].values[0]
+    df["Prezzo"][idx] = price
+    st.write(df["Ruolo"][idx])
 
 #funzione creazione excel
 def createExcel():
@@ -37,7 +44,7 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 #Apllicazione
 st.title("Applicazione Fanta")
 
-if st.button('Estrai Giocatore'): estraiGiocatore(table)
+if st.button('Estrai Giocatore'): giocatore = estraiGiocatore(table)
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
@@ -47,7 +54,10 @@ with center:
 with right:
     colB1, colB2, colB3 = st.columns([0.15, 0.7, 0.15], gap = "large")
     with colB2:
-        st.button('Registra acquisto')
+        if st.button('Registra acquisto'):
+            if acquirente == "Alessandro":
+                inserisciGiocatoreDataframe(Alessandro, giocatore, prezzo)
+                
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
