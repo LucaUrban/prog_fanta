@@ -25,6 +25,7 @@ def createExcel():
 @st.cache_resource
 def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
+st.write("jsnvjfdb")
 st.write(**st.secrets["mongo"])
 client = init_connection()
 
