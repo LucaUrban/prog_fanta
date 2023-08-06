@@ -13,10 +13,9 @@ import csv
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, cognome, price):
     idx = min(df[df["Prezzo"] == 0].index)
-    #df.loc[idx, "Cognome"] = cognome
+    df.loc[idx, "Cognome"] = cognome
     st.write(cognome)
     df.loc[idx, "Prezzo"] = price
-    #st.write(df["Ruolo"][idx])
 
 #funzione creazione excel
 def createExcel():
@@ -43,7 +42,7 @@ if st.button('Estrai Giocatore'):
     table.drop(giocatore.index, axis = 0, inplace = True)
     table.reset_index(inplace=True)
     cognome = giocatore["cognome"].values[0]
-st.write(cognome)
+st.write(giocatore)
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
