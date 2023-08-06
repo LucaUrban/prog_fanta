@@ -37,12 +37,13 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 
 #Apllicazione
 st.title("Applicazione Fanta")
-cognome = ""
+cognome = ""; giocatore = 0
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
     table.reset_index(inplace=True)
-cognome = giocatore["cognome"].values[0]
+    cognome = giocatore["cognome"].values[0]
+st.write(cognome)
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
