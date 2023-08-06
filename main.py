@@ -11,10 +11,10 @@ import random
 import csv
 
 #funzione estrazione casuale calciatore
-def inserisciGiocatoreDataframe(df, giocatore, price):
+def inserisciGiocatoreDataframe(df, cognome, price):
     idx = min(df[df["Prezzo"] == 0].index)
-    #df.loc[idx, "Cognome"] = giocatore[["cognome"]].values[0]
-    st.write(giocatore)
+    #df.loc[idx, "Cognome"] = cognome
+    st.write(cognome)
     df.loc[idx, "Prezzo"] = price
     #st.write(df["Ruolo"][idx])
 
@@ -37,12 +37,12 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 
 #Apllicazione
 st.title("Applicazione Fanta")
-giocatore = 0
+cognome = ""
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
     table.reset_index(inplace=True)
-st.write(giocatore)
+cognome = giocatore["cognome"].values[0]
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
