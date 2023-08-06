@@ -36,14 +36,16 @@ Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/mai
 
 #Apllicazione
 st.title("Applicazione Fanta")
+placeholder = st.empty()
+Ruolo = st.text_input("Ruolo giocatore", "")
+Cognome = placeholder.text_input("Cognome giocatore", "")
+Squadra = st.text_input("Squadra giocatore", "")
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
     table.reset_index(inplace=True)
-    cognome = giocatore["cognome"].values[0]
-Ruolo = st.text_input("Ruolo giocatore", "")
-Cognome = st.text_input("Cognome giocatore", "")
-Squadra = st.text_input("Squadra giocatore", "")
+    Cognome = placeholder.text_input("Cognome giocatore", giocatore["cognome"].values[0])
+
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
 with left: 
