@@ -22,6 +22,7 @@ def inserisciGiocatoreDataframe(df, cognome, price):
 def createExcel():
     st.write("tdtdtufotf")
 
+# Connection to the cluster
 @st.cache_resource
 def init_connection():
     return pymongo.MongoClient("mongodb+srv://Fanta:fanta@fanta.3dy3ftn.mongodb.net/")
@@ -32,30 +33,14 @@ client = init_connection()
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
-    db = client["Fantacalcio"]
-    st.write("ugfurehgu")
-    items = db["Squadre"].find()
-    items = list(items)  # make hashable for st.cache_data
+    items = list(client["Fantacalcio"]["Squadre"].find())  # make hashable for st.cache_data
     return items
 
-items = get_data()
-
-# Print results.
-for item in items:
-    st.write(f"{item['name']} has a :{item['pet']}:")
+data = get_data()
+st.json(data)
 
 #importazione lista calciatori
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
-
-#importazione csv partecipanti
-Alessandro = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Alessandro.csv')
-Andrea = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Andrea.csv')
-Gabriele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Gabriele.csv')
-Luca = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Luca.csv')
-Michele = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Michele.csv')
-Morto = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Morto.csv')
-Valerio = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valerio.csv')
-Valter = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/Valter.csv')
 
 #Apllicazione
 st.title("Applicazione Fanta")
