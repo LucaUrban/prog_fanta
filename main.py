@@ -64,7 +64,6 @@ if st.button('Estrai Giocatore'):
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
-    form = st.form(key='my_form')
     acquirente = form.selectbox("Acquirente", ["Alessandro", "Andrea", "Federico", "Gabriele", "Luca", "Michele", "Valerio", "Valter"], 0)
 with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
