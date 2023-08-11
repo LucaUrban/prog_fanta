@@ -15,7 +15,7 @@ import pymongo
 def inserisciGiocatoreDataframe(df, cognome, price):
     idx = min(df[df["Prezzo"] == 0].index)
     df.loc[idx, "Cognome"] = cognome
-    st.write(cognome)
+    st.write(cognome + "hrtbghr")
     df.loc[idx, "Prezzo"] = price
 
 #funzione creazione excel
