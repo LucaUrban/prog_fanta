@@ -34,10 +34,11 @@ client = init_connection()
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
-    items = list(client["Fantacalcio"]["Squadre"].find())  # make hashable for st.cache_data
-    return items
+    collection = client["Fantacalcio"]["Squadre"]
+    items = list(collection.find())  # make hashable for st.cache_data
+    return collection, items
 
-data = get_data()
+collection, data = get_data()
 session = st.session_state
 
 #costruzione dataframe giocatori
