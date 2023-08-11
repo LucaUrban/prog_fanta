@@ -13,7 +13,8 @@ import pymongo
 from json import loads
 
 #funzione estrazione casuale calciatore
-def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
+def inserisciGiocatoreDataframe(partecipante, ruolo, cognome, price):
+    df = pd.DataFrame(next(item for item in data if item["Partecipante"] == partecipante)["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
     idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
@@ -68,8 +69,7 @@ with colA:
 with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
-    if acquirente == "Alessandro":
-        inserisciGiocatoreDataframe(Alessandro, "Alessandro", session.ruolo, session.cognome, prezzo)
+    inserisciGiocatoreDataframe(acquirente, session.ruolo, session.cognome, prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
