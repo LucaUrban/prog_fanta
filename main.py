@@ -37,6 +37,7 @@ def get_data():
     return items
 
 data = get_data()
+session = st.session_state
 
 #costruzione dataframe giocatori
 Alessandro = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
