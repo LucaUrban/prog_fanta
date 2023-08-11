@@ -13,8 +13,7 @@ import pymongo
 from json import loads
 
 #funzione estrazione casuale calciatore
-def inserisciGiocatoreDataframe(partecipante, ruolo, cognome, price):
-    df = pd.DataFrame(next(item for item in data if item["Partecipante"] == partecipante)["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
     idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
@@ -65,12 +64,27 @@ if st.button('Estrai Giocatore'):
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
-    acquirente = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
+    form = st.form(key='my_form')
+    acquirente = form.selectbox("Acquirente", ["Alessandro", "Andrea", "Federico", "Gabriele", "Luca", "Michele", "Valerio", "Valter"], 0)
 with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
-    inserisciGiocatoreDataframe(acquirente, session.ruolo, session.cognome, prezzo)
-                
+    if acquirente == "Alesandro":
+        inserisciGiocatoreDataframe(Alessandro, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Andrea":
+        inserisciGiocatoreDataframe(Andrea, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Federico":
+        inserisciGiocatoreDataframe(Federico, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Gabriele":
+        inserisciGiocatoreDataframe(Gabriele, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Luca":
+        inserisciGiocatoreDataframe(Luca, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Michele":
+        inserisciGiocatoreDataframe(Michele, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Valerio":
+        inserisciGiocatoreDataframe(Valerio, acquirente, session.ruolo, session.cognome, prezzo)
+    if acquirente == "Valter":
+        inserisciGiocatoreDataframe(Valter, acquirente, session.ruolo, session.cognome, prezzo)                
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
