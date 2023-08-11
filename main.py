@@ -18,7 +18,7 @@ def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
     collection = client["Fantacalcio"]["Squadre"]
-    collection.update_one({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
+    collection.find_one_and_update({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
 
 #funzione creazione excel
 def createExcel():
@@ -32,7 +32,6 @@ def init_connection():
 client = init_connection()
 
 # Pull data from the collection.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
 def get_data():
     items = list(client["Fantacalcio"]["Squadre"].find())  # make hashable for st.cache_data
     return items
