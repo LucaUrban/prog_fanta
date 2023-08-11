@@ -53,25 +53,23 @@ table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main
 
 #Apllicazione
 st.title("Applicazione Fanta")
-placeholderRuolo = st.empty()
-placeholderCognome = st.empty()
-placeholderSquadra = st.empty()
-if st.button('Estrai Giocatore'):
-    giocatore = table.sample(n=1)
-    table.drop(giocatore.index, axis = 0, inplace = True)
-    table.reset_index(inplace=True)
-    Ruolo = placeholderRuolo.text_area("Ruolo giocatore", giocatore["ruolo"].values[0])
-    Cognome = placeholderCognome.text_area("Cognome giocatore", giocatore["cognome"].values[0])
-    Squadra = placeholderSquadra.text_area("Squadra giocatore", giocatore["squadra"].values[0])
-
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
-with left: 
+with left:
+    placeholderRuolo = st.empty()
+    #Ruolo = placeholderRuolo.text_area("Ruolo giocatore", giocatore["ruolo"].values[0])
     acquirente = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
 with center:
+    placeholderCognome = st.empty()
+    #Squadra = placeholderSquadra.text_area("Squadra giocatore", giocatore["squadra"].values[0])
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 with right:
-    st.write(Cognome)
+    placeholderSquadra = st.empty()
+    if st.button('Estrai Giocatore'):
+        giocatore = table.sample(n=1)
+        table.drop(giocatore.index, axis = 0, inplace = True)
+        table.reset_index(inplace=True)
+        Cognome = placeholderCognome.text_area("Cognome giocatore", giocatore["cognome"].values[0])
     if st.button('Registra acquisto'):
         if acquirente == "Alessandro":
             inserisciGiocatoreDataframe(Alessandro, Cognome, prezzo)
