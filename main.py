@@ -11,10 +11,6 @@ import random
 import csv
 import pymongo
 
-session = st.session_state
-session.CognomeVal = ""
-session.RuoloVal = ""
-
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, ruolo, cognome, price):
     idx = min(df[df["Prezzo"] == 0].index)
@@ -64,8 +60,6 @@ if st.button('Estrai Giocatore'):
     Ruolo = st.text_input("Ruolo giocatore", giocatore["ruolo"].values[0], key = "ruolo")
     Cognome = st.text_input("Cognome giocatore", giocatore["cognome"].values[0], key = "cognome")
     Squadra = st.text_input("Squadra giocatore", giocatore["squadra"].values[0], key = "squadra")
-    session.CognomeVal = session.cognome
-    session.RuoloVal = session.ruolo
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
@@ -74,8 +68,7 @@ with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
     if acquirente == "Alessandro":
-        st.write(session.cognome)
-        inserisciGiocatoreDataframe(Alessandro, session.RuoloVal, session.CognomeVal, prezzo)
+        inserisciGiocatoreDataframe(Alessandro, session.ruolo, session.cognome, prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
