@@ -54,6 +54,10 @@ table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main
 
 #Apllicazione
 st.title("Applicazione Fanta")
+if "ruolo" in session:
+    Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
+    Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
+    Squadra = st.text_input("Squadra giocatore", session.squadra, key = "squadra")
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
@@ -61,10 +65,6 @@ if st.button('Estrai Giocatore'):
     Ruolo = st.text_input("Ruolo giocatore", giocatore["ruolo"].values[0], key = "ruolo")
     Cognome = st.text_input("Cognome giocatore", giocatore["cognome"].values[0], key = "cognome")
     Squadra = st.text_input("Squadra giocatore", giocatore["squadra"].values[0], key = "squadra")
-if "ruolo" in session:
-    Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
-    Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
-    Squadra = st.text_input("Squadra giocatore", session.squadra, key = "squadra")
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
