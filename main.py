@@ -74,11 +74,9 @@ with left:
 with center:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 with right:
-    colB1, colB2, colB3 = st.columns([0.15, 0.7, 0.15], gap = "large")
-    with colB2:
-        if st.button('Registra acquisto'):
-            if acquirente == "Alessandro":
-                inserisciGiocatoreDataframe(Alessandro, Cognome, prezzo)
+    if st.button('Registra acquisto'):
+        if acquirente == "Alessandro":
+            inserisciGiocatoreDataframe(Alessandro, Cognome, prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
