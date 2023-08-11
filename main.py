@@ -41,13 +41,13 @@ session = st.session_state
 
 #costruzione dataframe giocatori
 Alessandro = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Andrea = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Federico = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Gabriele = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Luca = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Michele = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Valerio = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Valter = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Andrea = pd.DataFrame(data[1]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Federico = pd.DataFrame(data[2]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Gabriele = pd.DataFrame(data[3]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Luca = pd.DataFrame(data[4]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Michele = pd.DataFrame(data[5]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Valerio = pd.DataFrame(data[6]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Valter = pd.DataFrame(data[7]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
