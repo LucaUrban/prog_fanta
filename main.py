@@ -40,14 +40,14 @@ data = get_data()
 session = st.session_state
 
 #costruzione dataframe giocatori
-Alessandro = pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Andrea = pd.DataFrame(data[1]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Federico = pd.DataFrame(data[2]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Gabriele = pd.DataFrame(data[3]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Luca = pd.DataFrame(data[4]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Michele = pd.DataFrame(data[5]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Valerio = pd.DataFrame(data[6]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
-Valter = pd.DataFrame(data[7]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"])
+Alessandro = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Alessandro")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Andrea = pd.DataFrame(item for item in data if item["Partecipante"] == "Andrea")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Federico = pd.DataFrame(item for item in data if item["Partecipante"] == "Federico")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Gabriele = pd.DataFrame(item for item in data if item["Partecipante"] == "Gabriele")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Luca = pd.DataFrame(item for item in data if item["Partecipante"] == "Luca")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Michele = pd.DataFrame(item for item in data if item["Partecipante"] == "Michele")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Valerio = pd.DataFrame(item for item in data if item["Partecipante"] == "Valerio")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
+Valter = pd.DataFrame(item for item in data if item["Partecipante"] == "Valter")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
