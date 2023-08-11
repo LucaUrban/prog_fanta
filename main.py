@@ -72,7 +72,7 @@ if st.button('Estrai Giocatore'):
     Squadra = placeholderSquadra.text_input("Squadra giocatore", giocatore["squadra"].values[0])
     session.CognomeVal = Cognome
     session.RuoloVal = Ruolo
-    st.write(session.CognomeVal)
+st.write(session.CognomeVal)
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
