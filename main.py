@@ -17,6 +17,7 @@ def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
     idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
+    collection = client["Fantacalcio"]["Squadre"]
     collection.update_one({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
 
 #funzione creazione excel
@@ -34,11 +35,10 @@ client = init_connection()
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
-    collection = client["Fantacalcio"]["Squadre"]
     items = list(collection.find())  # make hashable for st.cache_data
-    return collection, items
+    return items
 
-collection, data = get_data()
+data = get_data()
 session = st.session_state
 
 #costruzione dataframe giocatori
