@@ -13,9 +13,8 @@ import pymongo
 
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, ruolo, cognome, price):
-    idx = min(df[df["Prezzo"] == 0].index)
+    idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
     df.loc[idx, "Cognome"] = cognome
-    st.write(cognome + "hrtbghr")
     df.loc[idx, "Prezzo"] = price
 
 #funzione creazione excel
