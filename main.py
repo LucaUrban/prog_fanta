@@ -57,12 +57,6 @@ table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main
 
 #Apllicazione
 st.title("Applicazione Fanta")
-placeholderRuolo = st.empty()
-placeholderCognome = st.empty()
-placeholderSquadra = st.empty()
-Ruolo = placeholderRuolo.text_input("Ruolo giocatore", "")
-Cognome = placeholderCognome.text_input("Cognome giocatore", "")
-Squadra = placeholderSquadra.text_input("Squadra giocatore", "")
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
