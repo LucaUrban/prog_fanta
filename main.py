@@ -12,8 +12,8 @@ import csv
 import pymongo
 
 session = st.session_state
-session.Cognome = ""
-session.Ruolo = ""
+session.CognomeVal = ""
+session.RuoloVal = ""
 
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, ruolo, cognome, price):
@@ -70,8 +70,8 @@ if st.button('Estrai Giocatore'):
     Ruolo = placeholderRuolo.text_input("Ruolo giocatore", giocatore["ruolo"].values[0])
     Cognome = placeholderCognome.text_input("Cognome giocatore", giocatore["cognome"].values[0])
     Squadra = placeholderSquadra.text_input("Squadra giocatore", giocatore["squadra"].values[0])
-    session.Cognome = Cognome
-    session.Ruolo = Ruolo
+    session.CognomeVal = Cognome
+    session.Ruoloval = Ruolo
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
