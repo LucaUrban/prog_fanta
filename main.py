@@ -67,6 +67,8 @@ if st.button('Estrai Giocatore'):
     Cognome = placeholderCognome.text_input("Cognome giocatore", giocatore["cognome"].values[0])
     Squadra = placeholderSquadra.text_input("Squadra giocatore", giocatore["squadra"].values[0])
 
+st.write(Cognome)
+
 colA, colB = st.columns(2, gap = "large")
 with colA:
     acquirente = st.selectbox("Acquirente", ["Alessandro", "Andrea", "Gabriele", "Luca", "Michele", "Morto", "Valerio", "Valter"], 0)
