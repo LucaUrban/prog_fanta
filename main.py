@@ -78,7 +78,7 @@ with right:
     with colB2:
         if st.button('Registra acquisto'):
             if acquirente == "Alessandro":
-                inserisciGiocatoreDataframe(0, Cognome, prezzo)
+                inserisciGiocatoreDataframe(Alessandro, Cognome, prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
