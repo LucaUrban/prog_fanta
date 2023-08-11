@@ -24,7 +24,7 @@ def createExcel():
 
 @st.cache_resource
 def init_connection():
-    st.write(**st.secrets["mongo"])
+    st.write("ugfurehgu")
     return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
@@ -33,6 +33,7 @@ client = init_connection()
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
+    st.write("ugfurehgu")
     db = client["Fantacalcio"]
     items = db["Squadre"].find()
     items = list(items)  # make hashable for st.cache_data
