@@ -76,7 +76,7 @@ with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
     if acquirente == "Alessandro":
-        inserisciGiocatoreDataframe(Alessandro, Ruolo, Cognome, prezzo)
+        inserisciGiocatoreDataframe(Alessandro, Ruolo, giocatore["cognome"].values[0], prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
