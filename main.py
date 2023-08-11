@@ -48,7 +48,7 @@ placeholderCognome = st.empty()
 placeholderSquadra = st.empty()
 Ruolo = placeholderRuolo.text_input("Ruolo giocatore", "")
 Cognome = placeholderCognome.text_input("Cognome giocatore", "")
-Squadra = placeholderSqudra.text_input("Squadra giocatore", "")
+Squadra = placeholderSquadra.text_input("Squadra giocatore", "")
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
