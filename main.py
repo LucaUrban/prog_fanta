@@ -60,9 +60,9 @@ if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
     table.reset_index(inplace=True)
-    Ruolo = placeholderRuolo.text_input("Ruolo giocatore", giocatore["ruolo"].values[0])
-    Cognome = placeholderCognome.text_input("Cognome giocatore", giocatore["cognome"].values[0])
-    Squadra = placeholderSquadra.text_input("Squadra giocatore", giocatore["squadra"].values[0])
+    Ruolo = placeholderRuolo.text_area("Ruolo giocatore", giocatore["ruolo"].values[0])
+    Cognome = placeholderCognome.text_area("Cognome giocatore", giocatore["cognome"].values[0])
+    Squadra = placeholderSquadra.text_area("Squadra giocatore", giocatore["squadra"].values[0])
 
 
 left, center, right = st.columns([0.4, 0.4, 0.2], gap = "large")
@@ -71,6 +71,7 @@ with left:
 with center:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 with right:
+    st.write(Cognome)
     if st.button('Registra acquisto'):
         if acquirente == "Alessandro":
             inserisciGiocatoreDataframe(Alessandro, Cognome, prezzo)
