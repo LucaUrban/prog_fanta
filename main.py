@@ -10,12 +10,14 @@ from pandas.api.types import is_numeric_dtype
 import random
 import csv
 import pymongo
+from json import loads
 
 #funzione estrazione casuale calciatore
-def inserisciGiocatoreDataframe(df, ruolo, cognome, price):
+def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
     idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
+    collection.update_one({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
 
 #funzione creazione excel
 def createExcel():
@@ -68,7 +70,7 @@ with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
     if acquirente == "Alessandro":
-        inserisciGiocatoreDataframe(Alessandro, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Alessandro, "Alessandro", session.ruolo, session.cognome, prezzo)
                 
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
