@@ -24,7 +24,7 @@ def createExcel():
 
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient('mongodb://localhost:27017')
+    return pymongo.MongoClient("mongodb+srv://Fanta:fanta@fanta.3dy3ftn.mongodb.net/")
 
 client = init_connection()
 
