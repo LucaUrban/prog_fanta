@@ -80,7 +80,7 @@ with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
     if acquirente == "Alessandro":
-        st.write(session.Cognome)
+        st.write(session.CognomeVal)
         inserisciGiocatoreDataframe(Alessandro, session.RuoloVal, session.CognomeVal, prezzo)
                 
 
