@@ -70,7 +70,7 @@ with right:
 col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
     st.write("Alessandro")
-    st.dataframe(data[0]['Squadra'], use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
+    st.dataframe(pd.DataFrame(data[0]['Squadra'], columns = ["Ruolo", "Cognome", "Prezzo"]), use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
     st.write("Michele")
     st.dataframe(data[4]['Squadra'], use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
