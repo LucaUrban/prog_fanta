@@ -61,9 +61,9 @@ if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
     table.drop(giocatore.index, axis = 0, inplace = True)
     table.reset_index(inplace=True)
-    Ruolo = placeholderRuolo.text_input("Ruolo giocatore", giocatore["ruolo"].values[0])
-    Cognome = placeholderCognome.text_input("Cognome giocatore", giocatore["cognome"].values[0])
-    Squadra = placeholderSquadra.text_input("Squadra giocatore", giocatore["squadra"].values[0])
+    Ruolo = st.text_input("Ruolo giocatore", giocatore["ruolo"].values[0])
+    Cognome = st.text_input("Cognome giocatore", giocatore["cognome"].values[0])
+    Squadra = st.text_input("Squadra giocatore", giocatore["squadra"].values[0])
     session.CognomeVal = Cognome
     session.RuoloVal = Ruolo
 st.write(session.CognomeVal)
