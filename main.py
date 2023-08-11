@@ -22,9 +22,11 @@ def inserisciGiocatoreDataframe(df, cognome, price):
 def createExcel():
     st.write("tdtdtufotf")
 
+st.write(**st.secrets["mongo"])
+
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient("mongodb://localhost:27017/")
+    return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
 
