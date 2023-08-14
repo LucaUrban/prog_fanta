@@ -68,21 +68,21 @@ with colB:
     prezzo = st.number_input("Prezzo", min_value=1, max_value=476, value=1)
 if st.button('Registra acquisto'):
     if acquirente == "Alessandro":
-        inserisciGiocatoreDataframe(Alessandro, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Alessandro, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Andrea":
-        inserisciGiocatoreDataframe(Andrea, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Andrea, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Federico":
-        inserisciGiocatoreDataframe(Federico, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Federico, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Gabriele":
-        inserisciGiocatoreDataframe(Gabriele, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Gabriele, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Luca":
-        inserisciGiocatoreDataframe(Luca, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Luca, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Michele":
-        inserisciGiocatoreDataframe(Michele, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Michele, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Valerio":
-        inserisciGiocatoreDataframe(Valerio, acquirente, session.ruolo, session.cognome, prezzo)
+        inserisciGiocatoreDataframe(Valerio, acquirente, Ruolo, Cognome, prezzo)
     if acquirente == "Valter":
-        inserisciGiocatoreDataframe(Valter, acquirente, session.ruolo, session.cognome, prezzo)                
+        inserisciGiocatoreDataframe(Valter, acquirente, Ruolo, Cognome, prezzo)                
 
 col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
