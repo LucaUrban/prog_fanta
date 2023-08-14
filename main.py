@@ -39,7 +39,7 @@ def get_data():
     return items
 
 data = get_data()
-listaChiamati = list(client["Fantacalcio"]["listaChiamati"].find())[0]["lista"]
+listaChiamati = loads(list(client["Fantacalcio"]["listaChiamati"].find())[0]["lista"])
 session = st.session_state
 
 #costruzione dataframe giocatori
@@ -64,8 +64,7 @@ if st.button('Estrai Giocatore'):
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
     listaChiamati.append(int(giocatore.index.values[0]))
-    st.write(loads(listaChiamati))
-    #client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(listaChiamati)}})
+    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(listaChiamati)}})
 if "ruolo" in session:
     Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
     Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
