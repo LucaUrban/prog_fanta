@@ -52,10 +52,11 @@ Valerio = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Va
 Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Valter")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
-#@st.cache_data()
+@st.cache_data()
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
 
 #Apllicazione
+st.dataframe(table)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = table.sample(n=1)
