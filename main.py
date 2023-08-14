@@ -52,8 +52,10 @@ Valerio = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Va
 Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Valter")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
-@st.cache_data()
-table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
+@st.cache_data(ttl = 600)
+def readTableGiocatori():
+    return pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";").values.tolist()
+table = readTableGiocatori()
 
 #Apllicazione
 st.dataframe(table)
