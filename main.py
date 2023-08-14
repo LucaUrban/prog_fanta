@@ -20,9 +20,11 @@ def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
     collection = client["Fantacalcio"]["Squadre"]
     collection.find_one_and_update({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
 
-#funzione creazione excel
-def createExcel():
-    st.write("tdtdtufotf")
+#crea la tabella riassuntiva delle spese per un singolo partecipante
+def creaTabRiassuntivaSpese(df):
+    return pd.Dataframe([sum(df[df["Ruolo"].str.contains("P")]["Prezzo"].values), sum(df[df["Ruolo"].str.contains("D")]["Prezzo"].values), sum(df[df["Ruolo"].str.contains("C")]["Prezzo"].values),
+                         sum(df[df["Ruolo"].str.contains("A")]["Prezzo"].values), 500 - sum(df["Prezzo"].values), 499 - sum(df[df["Prezzo"] != 0]["Prezzo"].values)]
+                         columns = ["Crediti"], index = ["Cr. Portieri", "Cr. Difensori", "Cr. Centrocampisti", "Cr. Attaccanti", "Cr. Rimanenti", "Cr. Max Spendibili"])
 
 # Connection to the cluster
 @st.cache_resource
@@ -50,6 +52,7 @@ Valerio = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Va
 Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Valter")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
+#@st.cache_data()
 table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
 
 #Apllicazione
@@ -93,6 +96,8 @@ col1, col2, col3, col4 = st.columns(4, gap = "small")
 with col1:
     st.write("Alessandro")
     st.dataframe(Alessandro, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
+    st.write("")
+    st.dataframe()
     st.write("")
     st.write("Luca")
     st.dataframe(Luca, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
