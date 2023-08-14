@@ -64,7 +64,7 @@ if st.button('Estrai Giocatore'):
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
-    session.quotazione = giocatore["quotazione"].values[0]
+    session.quotazione = str(giocatore["quotazione"].values[0])
     listaChiamati.append(int(giocatore.index.values[0]))
     client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(listaChiamati)}})
 if "ruolo" in session:
@@ -74,7 +74,7 @@ if "ruolo" in session:
         Squadra = st.text_input("Squadra giocatore", session.squadra, key = "squadra")
     with col2:
         Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
-        Quotazione = st.text_input("Valore giocatore", str(session.quotazione), key = "quotazione")
+        Quotazione = st.text_input("Valore giocatore", session.quotazione, key = "quotazione")
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
