@@ -60,11 +60,10 @@ st.dataframe(listaGiocatori)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = listaGiocatori.sample(n=1)
-    listaGiocatori = listaGiocatori.drop(giocatore.index[0], axis = 0, inplace = True)
-    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(list(listaChiamati) + list(giocatore.index.values))}})
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
+    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(list(listaChiamati) + list(giocatore.index.values))}})
 if "ruolo" in session:
     Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
     Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
