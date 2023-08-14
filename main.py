@@ -14,9 +14,12 @@ from json import loads
 
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
+    st.write(1)
     idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
+    st.write(idx)
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
+    st.write(df)
     collection = client["Fantacalcio"]["Squadre"]
     collection.find_one_and_update({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
 
@@ -52,10 +55,10 @@ Valerio = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Va
 Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Valter")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
-session.listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
+listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
 
 #Apllicazione
-st.dataframe(session.listaGiocatori)
+st.dataframe(listaGiocatori)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = session.listaGiocatori.sample(n=1)
