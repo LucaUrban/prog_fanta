@@ -54,6 +54,7 @@ Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Val
 
 #importazione lista calciatori
 listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
+listaGiocatori.drop(listaChiamati, inplace = True)
 
 #Apllicazione
 st.dataframe(listaGiocatori)
