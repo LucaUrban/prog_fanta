@@ -10,7 +10,7 @@ from pandas.api.types import is_numeric_dtype
 import random
 import csv
 import pymongo
-from json import loads
+from json import loads, dumps
 
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
@@ -60,9 +60,9 @@ st.dataframe(listaGiocatori)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = listaGiocatori.sample(n=1)
-    listaGiocatori = listaGiocatori.drop(giocatore.index, axis = 0, inplace = True)
+    listaGiocatori = listaGiocatori.drop(giocatore.index[0], axis = 0, inplace = True)
     st.write(listaChiamati + [giocatore.index])
-    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": json.dumps(listaChiamati + [giocatore.index])}})
+    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(listaChiamati + [giocatore.index])}})
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
