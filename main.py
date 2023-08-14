@@ -74,7 +74,7 @@ if "ruolo" in session:
         Squadra = st.text_input("Squadra giocatore", session.squadra, key = "squadra")
     with col2:
         Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
-        Quotazione = st.text_input("Valore giocatore", session.quotazione, key = "quotazione")
+        Quotazione = st.text_input("Valore giocatore", str(session.quotazione), key = "quotazione")
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
