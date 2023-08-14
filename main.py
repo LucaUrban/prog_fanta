@@ -59,7 +59,7 @@ st.dataframe(session.listaGiocatori)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = session.listaGiocatori.sample(n=1)
-    session.listaGiocatori.drop(giocatore.index, axis = 0, inplace = True)
+    session.listaGiocatori = session.listaGiocatori.drop(giocatore.index, axis = 0, inplace = True)
     session.listaGiocatori.reset_index(inplace=True)
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
