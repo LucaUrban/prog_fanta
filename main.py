@@ -39,6 +39,7 @@ def get_data():
     return items
 
 data = get_data()
+listaChiamati = list(client["Fantacalcio"]["listaChiamati"].find())[0]["lista"]
 session = st.session_state
 
 #costruzione dataframe giocatori
@@ -56,11 +57,12 @@ listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_f
 
 #Apllicazione
 st.dataframe(listaGiocatori)
-st.write(list(client["Fantacalcio"]["listaChiamati"].find())[0]["lista"])
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = listaGiocatori.sample(n=1)
-    session.listaGiocatori = listaGiocatori.drop(giocatore.index, axis = 0, inplace = True)
+    listaGiocatori = listaGiocatori.drop(giocatore.index, axis = 0, inplace = True)
+    st.write(listaChiamati + [giocatore.index])
+    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": json.dumps(listaChiamati + [giocatore.index])}})
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
