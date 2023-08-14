@@ -14,12 +14,9 @@ from json import loads
 
 #funzione estrazione casuale calciatore
 def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
-    st.write(1)
     idx = min(df[(df["Prezzo"] == 0) & (df["Ruolo"].str.contains(ruolo))].index)
-    st.write(idx)
     df.loc[idx, "Cognome"] = cognome
     df.loc[idx, "Prezzo"] = price
-    st.write(df)
     collection = client["Fantacalcio"]["Squadre"]
     collection.find_one_and_update({"Partecipante": partecipante}, {"$set": {"Squadra": loads(df.to_json(orient="records"))}})
 
