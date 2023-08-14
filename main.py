@@ -52,18 +52,15 @@ Valerio = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Va
 Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Valter")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
 
 #importazione lista calciatori
-@st.cache_data(ttl = 600)
-def readTableGiocatori():
-    return pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";").values.tolist()
-table = pd.DataFrame(list(readTableGiocatori()), colums = ["Ruolo", "Cognome", "Squadra", "Media", "Quotazione"])
+session.table = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";")
 
 #Apllicazione
-st.dataframe(table)
+st.dataframe(session.table)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
-    giocatore = table.sample(n=1)
-    table.drop(giocatore.index, axis = 0, inplace = True)
-    table.reset_index(inplace=True)
+    giocatore = session.table.sample(n=1)
+    session.table.drop(giocatore.index, axis = 0, inplace = True)
+    session.table.reset_index(inplace=True)
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
@@ -100,40 +97,40 @@ with col1:
     st.write("Alessandro")
     st.dataframe(Alessandro, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Alessandro))
+    st.session.table(creaTabRiassuntivaSpese(Alessandro))
     st.write("")
     st.write("Luca")
     st.dataframe(Luca, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Luca))
+    st.session.table(creaTabRiassuntivaSpese(Luca))
 with col2:
     st.write("Andrea")
     st.dataframe(Andrea, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Andrea))
+    st.session.table(creaTabRiassuntivaSpese(Andrea))
     st.write("")
     st.write("Michele")
     st.dataframe(Michele, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Michele))
+    st.session.table(creaTabRiassuntivaSpese(Michele))
 with col3:
     st.write("Federico")
     st.dataframe(Federico, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Federico))
+    st.session.table(creaTabRiassuntivaSpese(Federico))
     st.write("")
     st.write("Valerio")
     st.dataframe(Valerio, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Valerio))
+    st.session.table(creaTabRiassuntivaSpese(Valerio))
 with col4:
     st.write("Gabriele")
     st.dataframe(Gabriele, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Gabriele))
+    st.session.table(creaTabRiassuntivaSpese(Gabriele))
     st.write("")
     st.write("Valter")
     st.dataframe(Valter, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
     st.write("")
-    st.table(creaTabRiassuntivaSpese(Valter))
+    st.session.table(creaTabRiassuntivaSpese(Valter))
 
