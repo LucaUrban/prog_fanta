@@ -55,7 +55,7 @@ Valter = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Val
 @st.cache_data(ttl = 600)
 def readTableGiocatori():
     return pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_fanta/main/fanta/ListaGiocatori.CSV', delimiter = ";").values.tolist()
-table = pd.DataFrame(readTableGiocatori(), colums = ["Ruolo", "Cognome", "Squadra", "Media", "Quotazione"])
+table = pd.DataFrame(list(readTableGiocatori()), colums = ["Ruolo", "Cognome", "Squadra", "Media", "Quotazione"])
 
 #Apllicazione
 st.dataframe(table)
