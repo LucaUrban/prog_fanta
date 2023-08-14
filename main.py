@@ -56,6 +56,7 @@ listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_f
 
 #Apllicazione
 st.dataframe(listaGiocatori)
+st.write(client["Fantacalcio"]["listaChiamati"])
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = session.listaGiocatori.sample(n=1)
