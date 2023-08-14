@@ -57,7 +57,6 @@ listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_f
 listaGiocatori.drop(listaChiamati, inplace = True)
 
 #Apllicazione
-st.write(listaGiocatori)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = listaGiocatori.sample(n=1)
