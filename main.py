@@ -23,7 +23,7 @@ def inserisciGiocatoreDataframe(df, partecipante, ruolo, cognome, price):
 #crea la tabella riassuntiva delle spese per un singolo partecipante
 def creaTabRiassuntivaSpese(df):
     return pd.Dataframe([sum(df[df["Ruolo"].str.contains("P")]["Prezzo"].values), sum(df[df["Ruolo"].str.contains("D")]["Prezzo"].values), sum(df[df["Ruolo"].str.contains("C")]["Prezzo"].values),
-                         sum(df[df["Ruolo"].str.contains("A")]["Prezzo"].values), 500 - sum(df["Prezzo"].values), 499 - sum(df[df["Prezzo"] != 0]["Prezzo"].values)]
+                         sum(df[df["Ruolo"].str.contains("A")]["Prezzo"].values), 500 - sum(df["Prezzo"].values), 499 - sum(df[df["Prezzo"] != 0]["Prezzo"].values)],
                          columns = ["Crediti"], index = ["Cr. Portieri", "Cr. Difensori", "Cr. Centrocampisti", "Cr. Attaccanti", "Cr. Rimanenti", "Cr. Max Spendibili"])
 
 # Connection to the cluster
