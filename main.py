@@ -63,8 +63,8 @@ if st.button('Estrai Giocatore'):
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
-    st.write(list(listaChiamati) + list(giocatore.index.values))
-    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(list(listaChiamati) + list(giocatore.index.values))}})
+    st.write(list(listaChiamati) + list(giocatore.index.values[0]))
+    client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(list(listaChiamati) + list(giocatore.index.values[0]))}})
 if "ruolo" in session:
     Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
     Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
