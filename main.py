@@ -58,10 +58,8 @@ listaGiocatori.drop(listaChiamati, inplace = True)
 
 #Apllicazione
 st.title("Applicazione Fanta")
-col1, col2 = st.columns(2, gap = "large")
-with col1:
-    Cognome = st.text_input("Cognome giocatore", "", key = "cognome")
-    Ruolo = st.text_input("Ruolo giocatore", "", key = "ruolo")
+Cognome = st.text_input("Cognome giocatore", "", key = "cognome")
+Ruolo = st.text_input("Ruolo giocatore", "", key = "ruolo")
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
