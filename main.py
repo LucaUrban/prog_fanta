@@ -101,6 +101,8 @@ with col1:
     st.write("")
     st.write("Luca")
     st.dataframe(Luca, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
+    st.write("")
+    st.table(creaTabRiassuntivaSpese(Luca))
 with col2:
     st.write("Andrea")
     st.dataframe(Andrea, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
@@ -109,6 +111,8 @@ with col2:
     st.write("")
     st.write("Michele")
     st.dataframe(Michele, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
+    st.write("")
+    st.table(creaTabRiassuntivaSpese(Michele))
 with col3:
     st.write("Federico")
     st.dataframe(Federico, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
@@ -117,6 +121,8 @@ with col3:
     st.write("")
     st.write("Valerio")
     st.dataframe(Valerio, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
+    st.write("")
+    st.table(creaTabRiassuntivaSpese(Valerio))
 with col4:
     st.write("Gabriele")
     st.dataframe(Gabriele, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
@@ -125,4 +131,6 @@ with col4:
     st.write("")
     st.write("Valter")
     st.dataframe(Valter, use_container_width = True, height = 915, column_config={"Ruolo": st.column_config.ImageColumn("Ruolo")}, hide_index = True)
+    st.write("")
+    st.table(creaTabRiassuntivaSpese(Valter))
 
