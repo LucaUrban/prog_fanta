@@ -57,19 +57,23 @@ listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_f
 listaGiocatori.drop(listaChiamati, inplace = True)
 
 #Apllicazione
-st.dataframe(listaGiocatori)
 st.title("Applicazione Fanta")
 if st.button('Estrai Giocatore'):
     giocatore = listaGiocatori.sample(n=1)
     session.ruolo = giocatore["ruolo"].values[0]
     session.cognome = giocatore["cognome"].values[0]
     session.squadra = giocatore["squadra"].values[0]
+    session.quotazione = giocatore["quotazione"].values[0]
     listaChiamati.append(int(giocatore.index.values[0]))
     client["Fantacalcio"]["listaChiamati"].find_one_and_update({"nome": "listaChiamati"}, {"$set": {"lista": dumps(listaChiamati)}})
 if "ruolo" in session:
-    Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
-    Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
-    Squadra = st.text_input("Squadra giocatore", session.squadra, key = "squadra")
+    col1, col2 = st.columns(2, gap = "large")
+    with col1:
+        Cognome = st.text_input("Cognome giocatore", session.cognome, key = "cognome")
+        Squadra = st.text_input("Squadra giocatore", session.squadra, key = "squadra")
+    with col2:
+        Ruolo = st.text_input("Ruolo giocatore", session.ruolo, key = "ruolo")
+        Quotazione = st.text_input("Valore giocatore", session.quotazione, key = "quotazione")
 
 colA, colB = st.columns(2, gap = "large")
 with colA:
