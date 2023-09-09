@@ -59,7 +59,7 @@ listaGiocatori = pd.read_csv('https://raw.githubusercontent.com/LucaUrban/prog_f
 
 #Apllicazione
 st.title("Applicazione Fanta")
-Cognome = st.text_input("Cognome giocatore", "", key = "cognome")
+Cognome = st.selectbox("Cognome giocatore", listaGiocatori["cognome"], 0, key = "cognome")
 Ruolo = st.text_input("Ruolo giocatore", "", key = "ruolo")
 
 colA, colB = st.columns(2, gap = "large")
