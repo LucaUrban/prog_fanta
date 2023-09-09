@@ -43,7 +43,6 @@ session = st.session_state
 
 #creazione dizionario crediti rimanenti
 dict_crediti_rim = {item["Partecipante"]: item["crediti_rimanenti"] for item in data}
-st.write(dict_crediti_rim)
 
 #costruzione dataframe giocatori
 Alessandro = pd.DataFrame(next(item for item in data if item["Partecipante"] == "Alessandro")["Squadra"], columns = ["Ruolo", "Cognome", "Prezzo"])
